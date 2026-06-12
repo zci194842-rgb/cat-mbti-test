@@ -1208,8 +1208,15 @@ function generateShareCard() {
   var taglineY = cardY + imgSize + 148;
   wrapText(ctx, '"' + cat.tagline + '"', W / 2, taglineY, cardW - 80, 32);
 
+  // ===== Description (long text) =====
+  ctx.fillStyle = '#887788';
+  ctx.font = '18px -apple-system, BlinkMacSystemFont, sans-serif';
+  var descY = taglineY + 40;
+  var descHeight = wrapText(ctx, cat.description, W / 2, descY, cardW - 80, 28);
+  var descEndY = descY + descHeight;
+
   // ===== Soft pink divider with dot decoration =====
-  var divY = cardY + imgSize + 200;
+  var divY = descEndY + 20;
   ctx.strokeStyle = '#FFD6E6';
   ctx.lineWidth = 1.5;
   ctx.setLineDash([8, 6]);
